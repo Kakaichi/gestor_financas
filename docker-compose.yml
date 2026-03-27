@@ -1,0 +1,21 @@
+services:
+  api:
+    build: ./server
+    environment:
+      - PORT=3000
+      - DB_PATH=/app/data/transactions.db
+    volumes:
+      - api-data:/app/data
+    restart: unless-stopped
+
+  app:
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  api-data:
+

@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================================
+   DESIGN SYSTEM — Minhas Economias Fintech
+   All colors in HSL. All tokens defined here.
+   ============================================ */
+
+@layer base {
+  :root {
+    /* --- Core Palette --- */
+    --background: 0 0% 97%;
+    --foreground: 220 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+
+    /* --- Primary: Verde Fintech --- */
+    --primary: 142 72% 29%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 142 76% 36%;
+    --primary-glow: 142 69% 58%;
+    --primary-muted: 141 84% 93%;
+    --primary-muted-foreground: 142 72% 20%;
+
+    /* --- Secondary & Muted --- */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 12%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 142 84% 93%;
+    --accent-foreground: 142 72% 22%;
+
+    /* --- Status --- */
+    --income: 142 72% 29%;
+    --income-bg: 141 84% 93%;
+    --expense: 0 72% 51%;
+    --expense-bg: 0 86% 95%;
+    --balance-positive: 142 72% 29%;
+    --balance-negative: 0 72% 51%;
+
+    /* --- UI --- */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 90%;
+    --input: 220 13% 91%;
+    --ring: 142 72% 29%;
+
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+
+    /* --- Shadows --- */
+    --shadow-card: 0 1px 3px 0 hsl(220 20% 12% / 0.08), 0 4px 16px -2px hsl(220 20% 12% / 0.06);
+    --shadow-modal: 0 20px 60px -10px hsl(220 20% 12% / 0.20);
+    --shadow-primary: 0 4px 20px -4px hsl(142 72% 29% / 0.30);
+
+    /* --- Sidebar --- */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 12%;
+    --sidebar-primary: 142 72% 29%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 141 84% 93%;
+    --sidebar-accent-foreground: 142 72% 22%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-ring: 142 72% 29%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 220 14% 95%;
+
+    --card: 220 18% 11%;
+    --card-foreground: 220 14% 95%;
+
+    --popover: 220 18% 11%;
+    --popover-foreground: 220 14% 95%;
+
+    --primary: 142 69% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 142 69% 48%;
+    --primary-glow: 142 69% 58%;
+    --primary-muted: 142 30% 16%;
+    --primary-muted-foreground: 142 69% 70%;
+
+    --secondary: 220 18% 16%;
+    --secondary-foreground: 220 14% 95%;
+
+    --muted: 220 18% 16%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 142 30% 16%;
+    --accent-foreground: 142 69% 70%;
+
+    --income: 142 69% 48%;
+    --income-bg: 142 30% 16%;
+    --expense: 0 69% 60%;
+    --expense-bg: 0 25% 16%;
+
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 18% 18%;
+    --input: 220 18% 18%;
+    --ring: 142 69% 42%;
+
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.3), 0 4px 16px -2px hsl(0 0% 0% / 0.2);
+    --shadow-primary: 0 4px 20px -4px hsl(142 69% 42% / 0.4);
+
+    --sidebar-background: 220 18% 11%;
+    --sidebar-foreground: 220 14% 95%;
+    --sidebar-primary: 142 69% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 142 30% 16%;
+    --sidebar-accent-foreground: 142 69% 70%;
+    --sidebar-border: 220 18% 18%;
+    --sidebar-ring: 142 69% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ============================================
+   UTILITIES & ANIMATIONS
+   ============================================ */
+
+@layer utilities {
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .modal-shadow {
+    box-shadow: var(--shadow-modal);
+  }
+
+  .primary-shadow {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary-muted)) 0%, hsl(0 0% 100%) 60%);
+  }
+
+  .gradient-card-income {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+  }
+
+  .gradient-card-expense {
+    background: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 72% 65%) 100%);
+  }
+
+  .gradient-card-balance {
+    background: linear-gradient(135deg, hsl(220 20% 12%) 0%, hsl(220 20% 25%) 100%);
+  }
+
+  .text-income {
+    color: hsl(var(--income));
+  }
+
+  .text-expense {
+    color: hsl(var(--expense));
+  }
+
+  .bg-income-subtle {
+    background-color: hsl(var(--income-bg));
+  }
+
+  .bg-expense-subtle {
+    background-color: hsl(var(--expense-bg));
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes accordion-down {
+  from { height: "0"; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: "0"; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+.animate-count-up {
+  animation: count-up 0.4s ease-out forwards;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
