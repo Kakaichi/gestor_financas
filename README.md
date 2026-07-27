@@ -61,16 +61,15 @@ Na raiz do repositório (onde está o `docker-compose.yml`):
 docker compose up --build -d
 ```
 
-Acesse **http://localhost:8081**. O Nginx serve o frontend e encaminha `/api` para o container da API. Os dados do SQLite ficam no volume **`api-data`**.
+Acesse **http://localhost:8081**. O Nginx serve o frontend e encaminha `/api` para o container da API. Os dados do SQLite ficam em **`server/data/transactions.db`** (pasta do projeto).
 
 Comandos úteis:
 
 ```bash
 docker compose down
-docker compose down -v
 ```
 
-O segundo comando remove também o volume e **apaga o banco de dados** persistido.
+O banco em `server/data/` **não** é removido pelo `docker compose down`.
 
 **2.B Desenvolvimento local (sem Docker)**
 
@@ -179,16 +178,15 @@ From the repository root (where `docker-compose.yml` lives):
 docker compose up --build -d
 ```
 
-Open **http://localhost:8081**. Nginx serves the frontend and proxies `/api` to the API container. SQLite data lives in the **`api-data`** volume.
+Open **http://localhost:8081**. Nginx serves the frontend and proxies `/api` to the API container. SQLite data lives in **`server/data/transactions.db`** (project folder).
 
 Useful commands:
 
 ```bash
 docker compose down
-docker compose down -v
 ```
 
-The second command also drops the volume and **deletes persisted database files**.
+The database in `server/data/` is **not** removed by `docker compose down`.
 
 **2.B Local development (without Docker)**
 

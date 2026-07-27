@@ -5,7 +5,8 @@ services:
       - PORT=3000
       - DB_PATH=/app/data/transactions.db
     volumes:
-      - api-data:/app/data
+      # Persist SQLite on the project SSD (survives OS reinstall / Docker reset)
+      - ./server/data:/app/data
     restart: unless-stopped
 
   app:
@@ -15,7 +16,4 @@ services:
     depends_on:
       - api
     restart: unless-stopped
-
-volumes:
-  api-data:
 
